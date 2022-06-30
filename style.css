@@ -11,7 +11,7 @@
 
 body {
   font-family: "Kaushan Script", cursive;
-  background:
+  background:wheat;
   color: var(--mainBlack);
 }
 /* nav links */
@@ -87,7 +87,7 @@ body {
   top: 0;
   right: 0;
   transition: all 0.3s ease-in-out;
-  background: rgba(255, 255, 255, 0.469)469);
+  background: rgba((255, 255, 255, 0.469)469);
   width: 0;
   overflow: hidden;
 }
@@ -147,7 +147,7 @@ body {
   height: 100%;
   outline: 0.5rem solid var(--mainYellow);
   z-index: -1;
-  transition: all 1s ease-in-out;
+  transition: all 3s ease-in-out;
 }
 .about-img__container:hover:before {
   top: 0;
@@ -250,8 +250,4 @@ body {
   top: 50%;
   right: 0;
   transform: translateX(60%);
-}
-
-.acceil{
-    
 }

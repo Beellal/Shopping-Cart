@@ -1,5 +1,4 @@
 // function afficher le panier
-
 (function () {
     const cartInfo = document.getElementById("cart-info");
     const cart = document.getElementById("cart");
@@ -7,12 +6,13 @@
         cart.classList.toggle("show-cart");
     });
 })();
-//ajouter des articles au panier
 
+
+//ajouter des articles au panier
 (function () {
-    const cartBtn = document.querySelectorAll(".store-item-icon");
-    cartBtn.forEach(function (btn) {
-        btn.addEventListener("click", function (event) {
+     const cartBtn = document.querySelectorAll(".store-item-icon");
+     cartBtn.forEach(function (btn) {
+     btn.addEventListener("click", function (event) {
 
             if (event.target.parentElement.classList.contains("store-item-icon")) {
                 let recuperSrcImg = event.target.parentElement.previousElementSibling.src;
@@ -30,11 +30,11 @@
 
 
                 let prix = event.target.parentElement.parentElement.nextElementSibling.children[0].children[1].textContent;
-                item.prix = prix
+                item.prix = prix;
                 //console.log(prix);
 
-                let finalPrix = prix.slice(1).trim();
-                item.prix = finalPrix;
+                //let finalPrix = prix.slice(1).trim(0);
+                //item.prix = finalPrix;
 
                 //console.log(finalPrix);
                 const cartItem = document.createElement("div");
@@ -47,21 +47,21 @@
                 );
                 cartItem.innerHTML =
                     `
-                                <!-- cart item -->
+                            <!-- cart item -->
                         
                             <img src="${item.img}" class="img-fluid rounded-circle  " id="item-img" alt="" style="width: 5rem; height: 3rem;">
                             <div class="cart-item-text">
 
-                            <p id="cart-item-title" class="font-weight-bold mb-0">Voiture</p>
+                            
                             <span> ${item.name}</span>
                             <span id="cart-item-price" class="cart-item-price" class="mb-0">${item.prix}</span>
                             </div>
                             <a href="#" id='cart-item-remove' class="cart-item-remove">
                             <i class="fas fa-trash"></i>
                             </a>
-                        </div>
-                        <!--end of  cart item -->
-                `
+                            </div>
+                            <!--end of  cart item -->
+                    `
             
                 //select cart
 
@@ -69,7 +69,7 @@
                 const total = document.querySelector(".cart-total-container");
 
                 cart.insertBefore(cartItem,total);
-                alert("Voiture ajouter a votre panier")
+                alert("Les habits ajouter à votre panier")
 
                 afficherTotal();
 
@@ -90,16 +90,13 @@
         const totalMoney = total.reduce(function(total,item){{
             total += item;
             return total;
-        }},0)
-
-        const finalMoney = totalMoney.toFixed(2);
-        
+        }},)
+        const finalMoney = totalMoney.toFixed(2); 
         //console.log(finalMoney);
 
-        document.getElementById('cart-total').textContent = finalMoney;
+       document.getElementById('cart-total').textContent = finalMoney;
         document.querySelector('.item-total').textContent = finalMoney;
         document.getElementById('item-count').textContent = total.length;
-
     })
 }
 //suprimer l'article ajouter au panier
@@ -110,7 +107,7 @@
         if(e.target.parentElement.classList.contains('cart-item-remove')){
             const item = e.target.parentElement.parentElement;
             item.parentElement.removeChild(item);
-            afficherTotal();
+          //  afficherTotal();
         }
         
     })
@@ -120,14 +117,26 @@
 (function deletAllArticle (){
     const deletItem = document.getElementById('clear-cart');
     deletItem.addEventListener('click', ()=>{
-        const allItem = document.querySelectorAll('.cart-item-remove');
+        const allItem = document.querySelectorAll('.cart-item-remove')
         allItem.forEach(item =>{
             item.parentElement.parentElement.removeChild(item.parentElement);
-            afficherTotal();
-            
-            //console.log(afficherTotal());
-        })
-       
-    })
-    
+            //delete afficherTotal();
+          //  afficherTotal();     
+        //console.log(afficherTotal());
+    })  
+    })   
 })();
+
+
+//supprimer les total
+/*(function deletotal (){
+    const deletItem = document.getElementById('clear-cart');
+    deletItem.addEventListener('click', ()=>{
+        const allItem = document.querySelectorAll('.cart-item-remove');
+        allItem.forEach(item =>{
+            item.parentElement.parentElement.removeChild.afficherTotal();
+          //  afficherTotal();     
+            //console.log(afficherTotal());
+    })  
+    })   
+})();*/
